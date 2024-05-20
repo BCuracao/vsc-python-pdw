@@ -3,10 +3,12 @@ This module demonstrates how to run a task in a separate thread
 at regular intervals using Python's threading module.
 """
 
+import queue
 import threading
-import time
 
 from bus_messages import AIRCRAFT_1_HT_ESCM_DAC
+
+message_queue = queue.Queue()
 
 def init_values():
     message = AIRCRAFT_1_HT_ESCM_DAC()
@@ -24,6 +26,8 @@ def schedule_task():
     threading.Timer(0.02, schedule_task).start()
     # Execute the task
     task()
+    
+def 
 
 # Start the initial scheduling
 schedule_task()
